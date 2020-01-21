@@ -29,4 +29,4 @@ RUN chmod u+x /usr/sbin/start
 EXPOSE 80
 
 # start nginx 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["start"]
