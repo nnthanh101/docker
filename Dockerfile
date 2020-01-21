@@ -24,7 +24,7 @@ COPY --from=builder /webapp/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d/app.conf.template
 COPY nginx/start-nginx.sh /usr/sbin/start
-RUN chmod u+x /usr/sbin/star t
+RUN chmod u+x /usr/sbin/start
 
 EXPOSE 80
 
