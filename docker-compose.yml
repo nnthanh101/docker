@@ -1,0 +1,11 @@
+version: "3.7"
+# You can run multiple services inside one docker compose file
+services:
+  docker-react:
+    container_name: docker-react
+    build:
+      context: .
+      dockerfile:
+        Dockerfile
+    ports:
+      - "3000:80"
