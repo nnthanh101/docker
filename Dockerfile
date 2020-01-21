@@ -3,7 +3,7 @@ LABEL maintainer="nnthanh101@gmail.com"
 
 ENV DEBUG=off                 \
     APP_VERSION="v1.0.0"      \
-    APP_DIR=/WORKDIR /webapp  \
+    APP_DIR=/webapp           \
     CLIENT_BODY_TIMEOUT=10    \
     CLIENT_HEADER_TIMEOUT=10  \
     CLIENT_MAX_BODY_SIZE=1024 \
@@ -12,9 +12,9 @@ ENV DEBUG=off                 \
 
 WORKDIR /webapp
 
-COPY . /webapp
-ENV PATH /app/node_modules/.bin:$PATH
-RUN yarn
+COPY package.json /webapp/package.json
+RUN yarn install
+COPY . /webapp/
 RUN yarn build
 
 FROM nginx:alpine
