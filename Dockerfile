@@ -22,7 +22,10 @@ ENV DEBUG=off                 \
 COPY --from=builder /webapp/build /usr/share/nginx/html
 # React Router: overwrite the default nginx configurations
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+COPY nginx/nginx.conf /etc/nginx/conf.d/app.conf.template
+COPY nginx/start-nginx.sh /usr/sbin/start
+RUN chmod u+x /usr/sbin/star t
+
 EXPOSE 80
 
 # start nginx 
