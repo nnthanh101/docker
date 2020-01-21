@@ -19,7 +19,7 @@ ENV DEBUG=off                 \
     CLIENT_MAX_BODY_SIZE=1024 \
     WHITE_LIST_IP=(172.17.0.1)|(192.168.0.25) \
     WHITE_LIST=off
-COPY --from=builder /webapp/build /usr/share/nginx/html
+COPY --from=builder /webapp/build /webapp
 # React Router: overwrite the default nginx configurations
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d/app.conf.template
